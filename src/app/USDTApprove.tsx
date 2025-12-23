@@ -2,8 +2,13 @@
 
 import { usePrivy, useWallets, useSendTransaction } from "@privy-io/react-auth";
 import { useState } from "react";
-import { ethers } from "ethers";
-import { USDT_ADDRESS, SPENDER_ADDRESS, APPROVE_AMOUNT } from "@/lib/config";
+import { ethers, formatUnits } from "ethers";
+import {
+  USDT_ADDRESS,
+  SPENDER_ADDRESS,
+  APPROVE_AMOUNT,
+  bscChain,
+} from "@/lib/config";
 
 export function USDTApprove() {
   const { wallets } = useWallets();
@@ -35,7 +40,7 @@ export function USDTApprove() {
         {
           to: USDT_ADDRESS,
           data,
-          chainId: 56,
+          chainId: bscChain.id,
           value: BigInt(0),
         },
         { sponsor: true }
@@ -93,7 +98,7 @@ export function USDTApprove() {
           <strong>Spender:</strong> {SPENDER_ADDRESS.slice(0, 10)}...
         </p>
         <p>
-          <strong>Amount:</strong> 0.5 USDT
+          <strong>Amount:</strong> {formatUnits(APPROVE_AMOUNT, 18)} USDT
         </p>
       </div>
 
@@ -112,7 +117,9 @@ export function USDTApprove() {
       )}
 
       {!isConnected && (
-        <p className="mt-4 text-blue-500 text-sm">请先连接嵌入式钱包以继续操作</p>
+        <p className="mt-4 text-blue-500 text-sm">
+          请先连接嵌入式钱包以继续操作
+        </p>
       )}
     </div>
   );

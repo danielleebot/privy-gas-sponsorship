@@ -3,6 +3,7 @@
 import { PrivyProvider } from "@privy-io/react-auth";
 import { USDTApprove } from "./USDTApprove";
 import { bscChain, PRIVY_APP_ID } from "@/lib/config";
+import { ExportWalletButton } from "./ExportWalletButton";
 
 export default function Home() {
   return (
@@ -28,6 +29,7 @@ export default function Home() {
             Privy Gas Sponsorship Demo
           </h1>
           <USDTApprove />
+          <ExportWalletButton />
         </div>
       </main>
     </PrivyProvider>

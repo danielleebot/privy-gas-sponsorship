@@ -1,14 +1,14 @@
-import { bsc } from "viem/chains";
+import { bscTestnet } from "viem/chains";
 import { addRpcUrlOverrideToChain } from "@privy-io/chains";
+import { parseUnits } from "viem";
 
 // Chain config
-export const BSC_RPC_URL = "";
-export const bscChain = addRpcUrlOverrideToChain(bsc, BSC_RPC_URL);
+export const BSC_RPC_URL =
+  "https://bnb-testnet.g.alchemy.com/v2/z_VbKWaDjY0JlY0YpCLHy";
+export const bscChain = addRpcUrlOverrideToChain(bscTestnet, BSC_RPC_URL);
 
 // Contract addresses
-export const USDT_ADDRESS = "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d";
-export const SPENDER_ADDRESS = "";
-export const APPROVE_AMOUNT = "500000000000000000"; // 0.5 USDT
-
-// Privy config
-export const PRIVY_APP_ID = "";
+export const USDT_ADDRESS = "0x337610d27c682E347C9cD60BD4b3b107C9d34dDd";
+export const SPENDER_ADDRESS = "0xbe946b2a47b5861e95aa8b601205889568c97def";
+export const APPROVE_AMOUNT = parseUnits("100", 18); // 100 USDT
+export const PRIVY_APP_ID = "cmi5m5vdz006lks0cbixho6k0";
